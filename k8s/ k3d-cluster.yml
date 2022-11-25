@@ -1,0 +1,20 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: k3d-cluster
+servers: 1
+agents: 3
+options:
+  k3s:
+    nodeLabels:
+      - label: topology.kubernetes.io/zone=zone-a
+        nodeFilters:
+          - agent:0
+      - label: topology.kubernetes.io/zone=zone-b
+        nodeFilters:
+          - agent:1
+      - label: topology.kubernetes.io/zone=zone-c
+        nodeFilters:
+          - agent:2
+
+# https://learnk8s.io/kafka-ha-kubernetes
