@@ -42,5 +42,5 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Docker Push
         run: |
-          ./mvnw install spring-boot:build-image -TC2 -Dspring-boot.build-image.imageName=${{ secrets.DOCKERHUB_USERNAME }}/silly-demo
+          ./mvnw install spring-boot:build-image -TC2 -Dspring-boot.build-image.imageName=${{ secrets.DOCKERHUB_USERNAME }}/silly-demo:${{ steps.vars.outputs.sha_short }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/silly-demo:${{ steps.vars.outputs.sha_short }}
