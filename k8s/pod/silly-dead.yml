@@ -8,10 +8,10 @@ metadata:
 spec:
   containers:
   - name: silly
-    image: barakb/silly-demo:168e4bf
+    image: barakb/silly-demo:bd86995
     livenessProbe:
       httpGet:
         path: /this/path/does/not/exist
-        port: 9090
-        initialDelaySeconds: 5
-        timeoutSeconds: 2
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 2
