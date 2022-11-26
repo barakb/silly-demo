@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: silly
+  labels:
+    type: java
+    vendor: barak
+spec:
+  containers:
+  - name: silly
+    image: barakb/silly-demo:168e4bf
+    livenessProbe:
+      httpGet:
+        path: /this/path/does/not/exist
+        port: 9090
+        initialDelaySeconds: 5
+        timeoutSeconds: 2

@@ -79,14 +79,6 @@
 			<plugin>
 				<groupId>org.graalvm.buildtools</groupId>
 				<artifactId>native-maven-plugin</artifactId>
-<!--				<configuration>-->
-<!--					<image>-->
-<!--						<builder>paketobuildpacks/builder:tiny</builder>-->
-<!--						<env>-->
-<!--							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>-->
-<!--						</env>-->
-<!--					</image>-->
-<!--				</configuration>-->
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -6,8 +6,26 @@
  * stopping the cluster `k3d cluster delete --config k3d-cluster.yml`
 
 #### running silly demo pod quick and dirty way
- * kubectl run silly --image barakb/silly-demo:168e4bf
+ * create pod manually `kubectl run silly --image barakb/silly-demo:168e4bf`
  * exec in the pod `kubectl exec silly -- ps aux`
  * get shell into the pod `kubectl exec -it silly -- bash`
  * killing the java process `kubectl exec  silly -- pkill java`
  * deleting the pos `kubectl delete pod silly`
+
+#### pod definition from a file
+ * create pod from file `kubectl create -f pod/silly.yml`
+
+#### more detailed view on pods
+ * `kubectl get po -o wide`
+ * `kubectl get po -o json`
+ * `kubectl get po -o yaml`
+ *  `kubectl describe pod silly`
+
+#### getting logs
+ * `kubectl logs silly -f`
+
+#### 1 pod with 2 containers 
+  * `kubectl create -f pod/silly2.yml`
+  * get the log of the first container `kubectl logs -f silly2`
+  * get the log of the second container `kubectl logs -f silly2 -c another-silly`
+  * get the log of all containers of the pod `kubectl logs silly2 --all-containers` (can't follow)
