@@ -1,0 +1,25 @@
+apiVersion:  apps/v1
+kind: ReplicaSet
+metadata:
+  name: silly-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: backend
+      service: silly
+  template:
+    metadata:
+      labels:
+        type: backend
+        service: silly
+        language: kotlin
+    spec:
+      containers:
+        - name: silly
+          image: barakb/silly-demo:31f6d77
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 9090
+            initialDelaySeconds: 40
